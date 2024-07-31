@@ -1,0 +1,24 @@
+.nav-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    flex-wrap: wrap; /* Allow wrapping to next line on small screens */
+    gap: 10px; /* Space between buttons */
+    padding: 10px 0; /* Space around buttons */
+  }
+  
+  .nav-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+  }
+  
+  .nav-button:hover {
+    background-color: #0056b3;
+  }
+  

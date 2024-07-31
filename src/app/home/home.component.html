@@ -1,0 +1,33 @@
+<!-- home.component.html -->
+<header>
+  <img src="assets/logo.png" alt="Luigi_043 Logo" class="logo">
+</header>
+
+<div class="sidebar">
+  <!-- Sidebar content -->
+  <button class="nav-button" routerLink="/">Home</button>
+  <button class="nav-button" routerLink="/about-me">About Me</button>
+  <button class="nav-button" routerLink="/contact-me">Contact Me</button>
+  <button class="nav-button" routerLink="/social-media">Social Media</button>
+  <button class="nav-button" routerLink="/watch">Watch</button>
+  <button class="nav-button" routerLink="/merchant">Merchant</button>
+</div>
+
+<main>
+  <div class="content">
+    <button mat-raised-button color="primary" (click)="goToTwitch()">Watch Live on Twitch</button>
+    <!-- Optionally include video or photo background -->
+    <div class="background">
+      <!-- You can add a video or image background here -->
+      <!-- Example for a video background -->
+      <!-- <video autoplay muted loop>
+           <source src="assets/background.mp4" type="video/mp4">
+           Your browser does not support the video tag.
+         </video> -->
+    </div>
+    <section>
+      <h1>Welcome to Luigi_043</h1>
+      <p>Introduction content goes here.</p>
+    </section>
+  </div>
+</main>
