@@ -2,14 +2,29 @@
   <header>
     <img src="assets/logo.png" alt="Luigi_043 Logo">
   </header>
-  <nav class="nav-buttons-grid">
-    <button class="nav-button" routerLink="/">Home</button>
-    <button class="nav-button" routerLink="/about-me">About Me</button>
-    <button class="nav-button" routerLink="/contact-me">Contact Me</button>
-    <button class="nav-button" routerLink="/social-media">Social Media</button>
-    <button class="nav-button" routerLink="/watch">Watch</button>
-    <button class="nav-button" routerLink="/merchant">Merchant</button>
-  </nav>
+  <div class="social-media-buttons">
+    <button mat-icon-button color="primary" (click)="('https://www.reddit.com')">
+      <i class="fab fa-reddit"></i>
+    </button>
+    <button mat-icon-button color="primary" (click)="('https://www.instagram.com')">
+      <i class="fab fa-instagram"></i>
+    </button>
+    <button mat-icon-button color="primary" (click)="('https://www.facebook.com')">
+      <i class="fab fa-facebook"></i>
+    </button>
+    <button mat-icon-button color="primary" (click)="('https://www.twitter.com')">
+      <i class="fab fa-twitter"></i>
+    </button>
+  </div>
   
+  <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button routerLink="/about-me">About Me</button>
+    <button mat-button routerLink="/contact-me">Contact Me</button>
+    <button mat-button routerLink="/social-media">Social Media</button>
+    <button mat-button routerLink="/watch">Watch</button>
+    <button mat-button routerLink="/merchant">Merchant</button>
+  </div>
 </div>
 <router-outlet></router-outlet>

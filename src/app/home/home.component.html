@@ -1,30 +1,37 @@
-<!-- home.component.html -->
 <header>
-  <img src="assets/logo.png" alt="Luigi_043 Logo" class="logo">
+  <img src="assets/logo.png" alt="Luigi_043 Logo">
 </header>
+<!-- Social Media Buttons -->
+<div class="social-media-buttons">
+<button mat-icon-button color="primary" (click)="('https://www.reddit.com')">
+  <i class="fab fa-reddit"></i>
+</button>
+<button mat-icon-button color="primary" (click)="('https://www.instagram.com')">
+  <i class="fab fa-instagram"></i>
+</button>
+<button mat-icon-button color="primary" (click)="('https://www.facebook.com')">
+  <i class="fab fa-facebook"></i>
+</button>
+<button mat-icon-button color="primary" (click)="('https://www.twitter.com')">
+  <i class="fab fa-twitter"></i>
+</button>
+</div>
 
-<div class="sidebar">
-  <!-- Sidebar content -->
-  <button class="nav-button" routerLink="/">Home</button>
-  <button class="nav-button" routerLink="/about-me">About Me</button>
-  <button class="nav-button" routerLink="/contact-me">Contact Me</button>
-  <button class="nav-button" routerLink="/social-media">Social Media</button>
-  <button class="nav-button" routerLink="/watch">Watch</button>
-  <button class="nav-button" routerLink="/merchant">Merchant</button>
+<!-- Navigation Buttons -->
+<div class="navigation-buttons">
+<button mat-button routerLink="/">Home</button>
+<button mat-button routerLink="/about-me">About Me</button>
+<button mat-button routerLink="/contact-me">Contact Me</button>
+<button mat-button routerLink="/social-media">Social Media</button>
+<button mat-button routerLink="/watch">Watch</button>
+<button mat-button routerLink="/merchant">Merchant</button>
 </div>
 
 <main>
   <div class="content">
     <button mat-raised-button color="primary" (click)="goToTwitch()">Watch Live on Twitch</button>
     <!-- Optionally include video or photo background -->
-    <div class="background">
-      <!-- You can add a video or image background here -->
-      <!-- Example for a video background -->
-      <!-- <video autoplay muted loop>
-           <source src="assets/background.mp4" type="video/mp4">
-           Your browser does not support the video tag.
-         </video> -->
-    </div>
+    <div class="background"></div>
     <section>
       <h1>Welcome to Luigi_043</h1>
       <p>Introduction content goes here.</p>
