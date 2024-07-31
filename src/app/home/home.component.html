@@ -1,40 +1,15 @@
-<header>
-  <img src="assets/logo.png" alt="Luigi_043 Logo">
-</header>
-<!-- Social Media Buttons -->
-<div class="social-media-buttons">
-<button mat-icon-button color="primary" (click)="('https://www.reddit.com')">
-  <i class="fab fa-reddit"></i>
-</button>
-<button mat-icon-button color="primary" (click)="('https://www.instagram.com')">
-  <i class="fab fa-instagram"></i>
-</button>
-<button mat-icon-button color="primary" (click)="('https://www.facebook.com')">
-  <i class="fab fa-facebook"></i>
-</button>
-<button mat-icon-button color="primary" (click)="('https://www.twitter.com')">
-  <i class="fab fa-twitter"></i>
-</button>
-</div>
 
-<!-- Navigation Buttons -->
-<div class="navigation-buttons">
-<button mat-button routerLink="/">Home</button>
-<button mat-button routerLink="/about-me">About Me</button>
-<button mat-button routerLink="/contact-me">Contact Me</button>
-<button mat-button routerLink="/social-media">Social Media</button>
-<button mat-button routerLink="/watch">Watch</button>
-<button mat-button routerLink="/merchant">Merchant</button>
-</div>
 
-<main>
-  <div class="content">
-    <button mat-raised-button color="primary" (click)="goToTwitch()">Watch Live on Twitch</button>
-    <!-- Optionally include video or photo background -->
-    <div class="background"></div>
-    <section>
-      <h1>Welcome to Luigi_043</h1>
-      <p>Introduction content goes here.</p>
-    </section>
+<!-- Content Area -->
+<main class="main-content">
+  <div class="twitch-button-container">
+    <button mat-raised-button color="primary" (click)="goToTwitch()">
+      <i class="fab fa-twitch"></i> Watch Live on Twitch
+    </button>
   </div>
+
+  <section class="welcome-section">
+    <h1>Welcome to Luigi_043</h1>
+    <p>Introduction content goes here.</p>
+  </section>
 </main>

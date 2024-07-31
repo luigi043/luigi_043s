@@ -1,23 +1,101 @@
-.nav-buttons {
-  display: flex;
-  justify-content: center; /* Center the buttons horizontally */
-  flex-wrap: wrap; /* Allow wrapping to next line on small screens */
-  gap: 10px; /* Space between buttons */
-  padding: 10px 0; /* Space around buttons */
+/* Ensure the body and html have full height to allow absolute positioning */
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
-.nav-button {
-  background-color: #007bff;
-  color: white;
+/* CSS para o Header e Logo */
+header {
+  display: flex;
+  align-items: center; /* Alinha o logo verticalmente ao centro */
+  padding: 10px; /* Espaçamento interno no cabeçalho */
+  background-color: #fff; /* Cor de fundo do cabeçalho, ajuste conforme necessário */
+}
+
+.logo {
+  max-width: 250px; /* Define a largura máxima do logo (ajuste conforme necessário) */
+  height: auto; /* Mantém a proporção do logo */
+  display: block;
+}
+
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Ensure main content does not overlap with toolbar */
+.router-outlet {
+  margin-top: 64px; /* Adjust based on toolbar height */
+  padding: 20px;
+}
+
+/* Container for social media and navigation buttons */
+.bottom-left-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center; /* Vertically center buttons */
+  gap: 20px; /* Space between the social media buttons and navigation buttons */
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #f8f9fa; /* Light background for visibility */
+  border-top: 1px solid #ddd; /* Optional border for separation */
+}
+
+/* Style for social media buttons */
+.social-media-buttons {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
+
+/* Style for navigation buttons */
+.navigation-buttons {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping to new line if space is constrained */
+  gap: 10px; /* Space between buttons */
+}
+
+button {
+  position: relative;
+  padding: 0;
+  background: none;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  outline: none;
   cursor: pointer;
-  font-size: 16px;
-  text-transform: uppercase;
+  height: 24px; /* Height of the bar */
+  width: 40px; /* Width of the bar */
+  margin: 0;
+}
+
+/* Add a bar effect for selected and hovered buttons */
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px; /* Height of the bar */
+  background-color: transparent;
+  transform: translateY(-50%);
   transition: background-color 0.3s;
 }
 
-.nav-button:hover {
-  background-color: #0056b3;
+button:hover::after,
+button.selected::after {
+  background-color: #ff4081; /* Change to your desired color */
+}
+
+/* Hide the button text */
+button span {
+  display: none;
+}
+
+/* Add some spacing for alignment */
+.navigation-buttons button,
+.social-media-buttons button {
+  margin: 4px 0;
 }

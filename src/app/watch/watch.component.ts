@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-watch',
-  standalone: true,
-  imports: [],
+  standalone: false,
   templateUrl: './watch.component.html',
   styleUrl: './watch.component.css'
 })

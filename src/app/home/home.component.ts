@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+[x: string]: any;
   constructor(private router: Router) {}
 
   goToTwitch() {

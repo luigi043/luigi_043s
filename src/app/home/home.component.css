@@ -1,61 +1,73 @@
-/* home.component.css */
+
+/* Home Page Styles */
 header {
-  background-color: #fff;
+  background: #f8f9fa;
   padding: 10px;
   text-align: center;
 }
 
 .logo {
-  max-width: 100px;
+  max-width: 150px;
+}
+
+.main-content {
+  padding: 20px;
+  position: relative;
+}
+
+.twitch-button-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.welcome-section {
+  text-align: center;
 }
 
 .sidebar {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 250px;
-  height: 100%;
-  background-color: #f1f1f1;
-  padding-top: 20px;
+  background: #f1f1f1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.sidebar a {
-  display: block;
-  padding: 10px 20px;
-  color: #333;
-  text-decoration: none;
+.social-media-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
-.sidebar a.active {
-  background-color: #ddd;
+.social-media-buttons button {
+  margin: 5px 0;
 }
 
-main {
-  margin-left: 270px;
-  padding: 20px;
+.navigation-buttons {
+  display: flex;
+  flex-direction: column;
 }
 
-.background {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  background: url('assets/background.jpg') no-repeat center center;
-  background-size: cover;
+.navigation-buttons button {
+  margin: 5px 0;
 }
 
-.background video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    bottom: auto;
+    top: 0;
+  }
 
-.content {
-  padding: 20px;
-}
+  .navigation-buttons {
+    flex-direction: row;
+    overflow-x: auto;
+  }
 
-button.mat-raised-button {
-  margin-top: 20px;
+  .navigation-buttons button {
+    margin: 0 5px;
+  }
 }

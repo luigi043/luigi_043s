@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AboutComponent } from './about.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AboutComponent', () => {
   let component: AboutComponent;
@@ -8,10 +8,15 @@ describe('AboutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AboutComponent]
+      declarations: [ AboutComponent ],
+      imports: [
+        BrowserAnimationsModule // Necessário para o Material
+      ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(AboutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
