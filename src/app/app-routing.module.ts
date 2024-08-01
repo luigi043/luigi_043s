@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'social-media', component: SocialMediaComponent },
   { path: 'watch', component: WatchComponent },
   { path: 'merchant', component: MerchantComponent }
+  
 ];
 
 @NgModule({

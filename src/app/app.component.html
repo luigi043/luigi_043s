@@ -5,7 +5,7 @@
 
 <!-- Main Content Area -->
 <router-outlet></router-outlet>
-
+<footer>
 <!-- Bottom Left Container -->
 <div class="bottom-left-container">
   <!-- Social Media Buttons -->
@@ -34,3 +34,5 @@
     <button mat-button routerLink="/merchant" [class.selected]="selectedButton === 'merchant'" (click)="selectButton('merchant')" (mouseover)="hoverButton('merchant')" (mouseleave)="hoverButton(null)">Merchant</button>
   </div>
 </div>
+  
+</footer>
