@@ -1,160 +1,168 @@
-/* Container for description, profile photo, and cute-and-evil list */
-.about-me-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin: 20px auto;
-  max-width: 1200px;
-  padding: 20px;
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #6441a5;
+  color: white;
+}
+
+.twitch-button-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Container for the About Me Section */
+.about-me-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Top Section: Description and Profile Photo */
 .top-section {
   display: flex;
-  gap: 20px;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
 .description {
-  flex: 1;
-  min-width: 300px;
-  max-width: 600px;
+  flex: 1 1 60%;
+  margin-right: 20px;
   text-align: left;
 }
 
+.description p {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  color: #333;
+}
+
 .profile-photo {
-  flex: 0 0 auto;
-  max-width: 300px;
+  flex: 1 1 35%;
+  text-align: center;
 }
 
 .profile-photo img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling for cute and evil list */
-aside {
-  flex: 0 0 300px; /* Fixed width for aside */
+/* Button Group */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-.cute-and-evil-list {
-  padding: 0;
-  list-style: none;
-  margin: 0;
+button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.cute-and-evil-list li {
-  font-size: 1.2em;
-  margin: 10px 0;
-  padding: 10px;
-  background: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease, transform 0.3s ease;
+button i {
+  margin-right: 10px;
 }
 
-.cute-and-evil-list li:hover {
-  background: #e0f7fa;
-  transform: scale(1.02);
+/* Hover Effects for Buttons */
+button:hover {
+  transform: scale(1.05);
 }
 
-.cute-and-evil-list li strong {
-  color: #333;
-}
-
-/* Photo Grid Styles */
+/* Photo Grid Section */
 .photo-grid {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .photo-grid h2 {
-  font-size: 2em;
+  text-align: center;
   margin-bottom: 20px;
-  color: #333;
-  text-align: center; /* Center the title */
+  font-size: 2em;
+  color: #444;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px; /* Add spacing between items */
-  padding: 0;
+  justify-content: center;
 }
 
 .column {
   flex: 1;
-  min-width: 200px; /* Minimum width for each column */
-  max-width: 25%; /* Ensure up to 4 columns */
-  padding: 0 4px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .column img {
-  width: 100%; /* Make images responsive */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Optional: Add rounded corners */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow */
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.column img:hover {
+  transform: scale(1.05);
+}
+
+/* Level Classes for Different Sizes */
+.level-1 {
+  height: 150px;
+}
+
+.level-2 {
+  height: 200px;
+}
+
+.level-3 {
+  height: 250px;
 }
 
 /* Responsive layout */
-@media screen and (max-width: 800px) {
-  .column {
-    flex: 1;
-    max-width: 50%; /* Two columns on medium screens */
+@media (max-width: 768px) {
+  .top-section {
+      flex-direction: column;
   }
-}
 
-@media screen and (max-width: 600px) {
-  .column {
-    flex: 1;
-    max-width: 100%; /* One column on small screens */
+  .description {
+      margin-right: 0;
+      margin-bottom: 20px;
   }
-}
 
-/* Social Media Links Section */
-.social-media-links {
-  margin-top: 30px;
-}
+  .profile-photo {
+      margin-bottom: 20px;
+  }
 
-.social-media-links h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #333;
-  text-align: center; /* Center the title */
-}
+  .button-group {
+      flex-direction: column;
+      gap: 5px;
+  }
 
-.social-media-posts {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.post {
-  flex: 1;
-  min-width: 200px;
-  max-width: 300px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.post a {
-  display: block;
-  text-decoration: none;
-  color: #333;
-}
-
-.post img {
-  width: 100%;
-  height: auto;
-}
-
-.post p {
-  padding: 10px;
-  text-align: center;
-  background: #f9f9f9;
-  margin: 0;
+  .column {
+      flex: 1 1 100%;
+  }
 }

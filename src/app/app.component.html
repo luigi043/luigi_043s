@@ -5,7 +5,7 @@
 
 <!-- Main Content Area -->
 <router-outlet></router-outlet>
-<footer>
+
 <!-- Bottom Left Container -->
 <div class="bottom-left-container">
   <!-- Social Media Buttons -->
@@ -19,7 +19,7 @@
     <button mat-icon-button color="primary" (click)="goTo('https://www.reddit.com/user/Luigi_043/')" [class.selected]="selectedButton === 'reddit'" (mouseover)="hoverButton('reddit')" (mouseleave)="hoverButton(null)">
       <i class="fab fa-reddit"></i>
     </button>
-    <button mat-icon-button color="primary" (click)="goTo('https://www.youtube.com/UCoSCuzO9VKaW6clJQhgqHTw')" [class.selected]="selectedButton === 'youtube'" (mouseover)="hoverButton('youtube')" (mouseleave)="hoverButton(null)">
+    <button mat-icon-button color="primary" (click)="goTo('https://www.youtube.com/@luigi_043')" [class.selected]="selectedButton === 'youtube'" (mouseover)="hoverButton('youtube')" (mouseleave)="hoverButton(null)">
       <i class="fab fa-youtube"></i>
     </button>
   </div>
@@ -35,4 +35,4 @@
   </div>
 </div>
   
-</footer>
+

@@ -1,73 +1,96 @@
-
-/* Home Page Styles */
-header {
-  background: #f8f9fa;
-  padding: 10px;
-  text-align: center;
-}
-
-.logo {
-  max-width: 150px;
-}
-
-.main-content {
-  padding: 20px;
-  position: relative;
-}
-
-.twitch-button-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.welcome-section {
-  text-align: center;
-}
-
-.sidebar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 250px;
-  background: #f1f1f1;
-  padding: 10px;
+/* Ensure the whole viewport height is used */
+html, body {
+  height: 100%;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-.social-media-buttons {
+/* Styling for the main content area */
+.main-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 80vh; /* Use 80% of the viewport height */
+}
+
+/* Styling for the welcome section */
+.welcome-section {
+  background: #f4f4f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out;
+}
+
+/* Header styling */
+.welcome-section h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Paragraph styling */
+.welcome-section p {
+  font-size: 1.2em;
+  color: #555;
+  margin-top: 0;
+}
+
+/* Center the navigation bar */
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
-.social-media-buttons button {
-  margin: 5px 0;
-}
-
-.navigation-buttons {
+/* Styling for the Twitch button container */
+.twitch-button-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.navigation-buttons button {
-  margin: 5px 0;
+/* Styling for the Twitch button */
+.twitch-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6441a5; /* Twitch purple */
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    bottom: auto;
-    top: 0;
-  }
+/* Icon styling */
+.twitch-button i {
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 1.5em; /* Adjust size of Twitch icon */
+}
 
-  .navigation-buttons {
-    flex-direction: row;
-    overflow-x: auto;
-  }
+/* Hover effect for the button */
+.twitch-button:hover {
+  background-color: #a75bff; /* Lighter purple on hover */
+  transform: scale(1.05);
+}
 
-  .navigation-buttons button {
-    margin: 0 5px;
+/* Animation for the welcome section */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
   }
 }

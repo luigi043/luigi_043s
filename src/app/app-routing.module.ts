@@ -7,13 +7,17 @@ import { SocialMediaComponent } from './social-media/social-media.component';
 import { WatchComponent } from './watch/watch.component';
 import { MerchantComponent } from './merchant/merchant.component';
 
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about-me', component: AboutComponent },
   { path: 'contact-me', component: ContactComponent },
   { path: 'social-media', component: SocialMediaComponent },
   { path: 'watch', component: WatchComponent },
-  { path: 'merchant', component: MerchantComponent }
+  { path: 'merchant', component: MerchantComponent },
+  
+  { path: 'cart', component: MerchantComponent },
+  { path: 'checkout', component: MerchantComponent },
   
 ];
 
