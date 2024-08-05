@@ -59,7 +59,7 @@ mat-toolbar {
   gap: 10px; /* Space between buttons */
 }
 
-button {
+a {
   position: relative;
   padding: 0;
   background: none;
@@ -72,7 +72,7 @@ button {
 }
 
 /* Add a bar effect for selected and hovered buttons */
-button::after {
+a::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -84,8 +84,8 @@ button::after {
   transition: background-color 0.3s;
 }
 
-button:hover::after,
-button.selected::after {
+a:hover::after,
+a.selected::after {
   background-color: #ff4081; /* Change to your desired color */
 }
 

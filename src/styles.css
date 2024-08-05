@@ -1,0 +1,50 @@
+/* Estilos para o botão e estado selecionado */
+a:hover::after,
+a.selected::after {
+  background-color: #8b4513; /* Marrom médio para o hover e selecionado */
+}
+
+/* Define a imagem de fundo para o corpo   background: url('assets/background4.gif') no-repeat center center fixed;*/
+body {
+ 
+  background-size: cover;
+  font-family: 'Roboto', sans-serif; /* Fonte padrão */
+  color: #000; /* Cor do texto para preto */
+  margin: 0;
+  padding: 0;
+}
+
+/* Cabeçalhos */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif; /* Fonte para cabeçalhos */
+  color: #5c4033; /* Marrom escuro para cabeçalhos */
+}
+
+/* Texto do corpo */
+p, span, a, li {
+  font-family: 'Roboto', sans-serif; /* Fonte para texto normal */
+  color: #000; /* Cor do texto para preto */
+}
+
+/* Botões e links */
+a, button {
+  font-family: 'Roboto', sans-serif; /* Fonte para botões e links */
+  color: #fff; /* Cor do texto dos botões */
+  text-decoration: none;
+  border: 1px solid #8b4513; /* Marrom médio para bordas de botões */
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #696969; /* Cinza escuro para botões */
+}
+
+/* Estilo para botões em hover */
+a:hover, button:hover {
+  background-color: #5c4033; /* Marrom escuro para hover em botões */
+  color: #fff; /* Cor do texto em hover */
+}
+
+/* Adiciona estilo para textos destacados */
+strong {
+  font-family: 'Montserrat', sans-serif; /* Fonte para textos em negrito */
+  color: #8b4513; /* Marrom médio para textos em negrito */
+}

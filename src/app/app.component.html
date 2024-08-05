@@ -10,28 +10,71 @@
 <div class="bottom-left-container">
   <!-- Social Media Buttons -->
   <div class="social-media-buttons">
-    <button mat-icon-button color="primary" (click)="goTo('https://www.instagram.com/__luiz__morais__/')" [class.selected]="selectedButton === 'instagram'" (mouseover)="hoverButton('instagram')" (mouseleave)="hoverButton(null)">
+    <a
+      href="https://www.instagram.com/__luiz__morais__/"
+      target="_blank"
+      mat-icon-button
+      color="primary">
       <i class="fab fa-instagram"></i>
-    </button>
-    <button mat-icon-button color="primary" (click)="goTo('https://twitter.com/luigi_043')" [class.selected]="selectedButton === 'twitter'" (mouseover)="hoverButton('twitter')" (mouseleave)="hoverButton(null)">
+    </a>
+
+    <a
+      href="https://twitter.com/luigi_043"
+      target="_blank"
+      mat-icon-button
+      color="primary">
       <i class="fab fa-twitter"></i>
-    </button>
-    <button mat-icon-button color="primary" (click)="goTo('https://www.reddit.com/user/Luigi_043/')" [class.selected]="selectedButton === 'reddit'" (mouseover)="hoverButton('reddit')" (mouseleave)="hoverButton(null)">
+    </a>
+
+    <a
+      href="https://www.reddit.com/user/Luigi_043/"
+      target="_blank"
+      mat-icon-button
+      color="primary">
       <i class="fab fa-reddit"></i>
-    </button>
-    <button mat-icon-button color="primary" (click)="goTo('https://www.youtube.com/@luigi_043')" [class.selected]="selectedButton === 'youtube'" (mouseover)="hoverButton('youtube')" (mouseleave)="hoverButton(null)">
+    </a>
+
+    <a
+      href="https://www.youtube.com/@luigi_043"
+      target="_blank"
+      mat-icon-button
+      color="primary">
       <i class="fab fa-youtube"></i>
-    </button>
+    </a>
   </div>
 
   <!-- Navigation Buttons -->
   <div class="navigation-buttons">
-    <button mat-button routerLink="/" [class.selected]="selectedButton === 'home'" (click)="selectButton('home')" (mouseover)="hoverButton('home')" (mouseleave)="hoverButton(null)">Home</button>
-    <button mat-button routerLink="/about-me" [class.selected]="selectedButton === 'about-me'" (click)="selectButton('about-me')" (mouseover)="hoverButton('about-me')" (mouseleave)="hoverButton(null)">About</button>
-    <button mat-button routerLink="/contact-me" [class.selected]="selectedButton === 'contact-me'" (click)="selectButton('contact-me')" (mouseover)="hoverButton('contact-me')" (mouseleave)="hoverButton(null)">Contact</button>
-    <button mat-button routerLink="/social-media" [class.selected]="selectedButton === 'social-media'" (click)="selectButton('social-media')" (mouseover)="hoverButton('social-media')" (mouseleave)="hoverButton(null)">Social</button>
-    <button mat-button routerLink="/watch" [class.selected]="selectedButton === 'watch'" (click)="selectButton('watch')" (mouseover)="hoverButton('watch')" (mouseleave)="hoverButton(null)">Watch</button>
-    <button mat-button routerLink="/merchant" [class.selected]="selectedButton === 'merchant'" (click)="selectButton('merchant')" (mouseover)="hoverButton('merchant')" (mouseleave)="hoverButton(null)">Merchant</button>
+    <a
+      mat-button
+      routerLink="/"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="selected">Home</a>
+      
+    <a
+      mat-button
+      routerLink="/about"
+      routerLinkActive="selected">About</a>
+      
+    <a
+      mat-button
+      routerLink="/contact"
+      routerLinkActive="selected">Contact</a>
+      
+    <a
+      mat-button
+      routerLink="/social-media"
+      routerLinkActive="selected">Social</a>
+      
+    <a
+      mat-button
+      routerLink="/watch"
+      routerLinkActive="selected">Watch</a>
+      
+    <a
+      mat-button
+      routerLink="/merchant"
+      routerLinkActive="selected">Merchant</a>
   </div>
 </div>
   
