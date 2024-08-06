@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-watch',
   standalone: false,
   templateUrl: './watch.component.html',
-  styleUrl: './watch.component.css'
+  styleUrls: ['./watch.component.css'] // Corrigido de 'styleUrl' para 'styleUrls'
 })
 export class WatchComponent {
-
+  // Adicione aqui a lógica do componente se necessário
 }

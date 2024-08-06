@@ -1,0 +1,76 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply background color and text color */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #F3FAFD; /* Light background color */
+    color: #292927; /* Dark text color */
+}
+
+/* Main container styling */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Heading styles */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #418DD8; /* Blue color for headings */
+}
+
+/* Video section styling */
+.video-section {
+    width: 100%;
+    max-width: 1200px; /* Limit the maximum width for better layout on large screens */
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+.video-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem; /* Space between video items */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.video-item {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 45%; /* Width of each video item, adjusts for responsiveness */
+    max-width: 560px; /* Ensure video items don't get too wide */
+    text-align: center;
+    margin-bottom: 2rem; /* Space below each video item */
+}
+
+.video-item a {
+    display: block;
+}
+
+.video-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 2px solid #ddd; /* Add a separator between the image and title */
+}
+
+.video-title {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #292927; /* Dark text color for video titles */
+}

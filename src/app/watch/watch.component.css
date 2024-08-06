@@ -4,6 +4,8 @@ main {
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+    background-color: #F3FAFD; /* Fundo do container principal */
+    color: #292927; /* Cor do texto principal */
 }
 
 /* Styling for the Watch button */
@@ -21,13 +23,14 @@ main {
     overflow: hidden;
     cursor: pointer;
     margin: 10px 0;
+    background-color: #418DD8; /* Cor de fundo do botão */
     transition: color 0.3s ease;
 }
 
 /* Icon styling */
 .watch-button i {
-    margin-left: 10px; /* Space between text and icon */
-    font-size: 1.5em; /* Adjust size of Twitch icon */
+    margin-left: 10px; /* Espaço entre o texto e o ícone */
+    font-size: 1.5em; /* Ajusta o tamanho do ícone */
 }
 
 /* Centered bar effect */
@@ -37,8 +40,8 @@ main {
     top: 50%;
     left: 50%;
     width: 100%;
-    height: 4px; /* Height of the bar */
-    background-color: #a75bff; /* Lighter purple */
+    height: 4px; /* Altura da barra */
+    background-color: #292927; /* Cor da barra */
     transform: translate(-50%, -50%) scaleX(0);
     transform-origin: center;
     transition: transform 0.3s ease;
@@ -52,25 +55,25 @@ main {
 /* Styling for welcome text */
 .welcome-text {
     font-size: 1.2em;
-    color: #333;
+    color: #292927; /* Cor do texto */
     margin: 20px 0;
     padding: 20px;
     border-radius: 10px;
-    background: #f4f4f9;
+    background: #F3FAFD; /* Fundo do texto */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     animation: slideIn 1s ease-out;
     line-height: 1.6;
-    text-align: center; /* Center align text */
+    text-align: center; /* Centraliza o texto */
 }
 
 /* Highlighted part of the text */
 .welcome-text .highlight {
     font-weight: bold;
-    color: #6441a5; /* Twitch purple color */
+    color: #418DD8; /* Cor do destaque */
     display: block;
     margin-bottom: 10px;
     font-size: 1.5em;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Add some shadow for emphasis */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra para ênfase */
 }
 
 /* Animation for welcome text */
@@ -83,27 +86,4 @@ main {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* Animation for welcome text */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Styling for Twitch stream iframe */
-.twitch-stream {
-    margin: 20px 0;
-}
-
-/* Ensure iframe is responsive */
-.twitch-stream iframe {
-    max-width: 100%;
-    height: auto;
 }

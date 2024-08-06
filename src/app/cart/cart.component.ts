@@ -12,7 +12,8 @@ import { Product } from '../product.service';
 export class CartComponent implements OnInit {
   cart$: Observable<CartItem[]>;
   total$: Observable<number>;
-  showFullDescription: { [key: number]: boolean } = {};
+  suggestedProducts: Product[] = []; // Para caso não seja um Observable
+  showFullDescription: { [key: number]: boolean } = {}; // Armazena o estado de expansão da descrição
 
   constructor(private cartService: CartService, private router: Router) {
     this.cart$ = this.cartService.getCart();
@@ -20,6 +21,7 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Inicialize suggestedProducts$ conforme necessário
   }
 
   removeFromCart(item: CartItem): void {
@@ -31,16 +33,10 @@ export class CartComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/products']); // Ajuste o caminho conforme necessário
+    this.router.navigate(['/merchant']); // Ajuste o caminho conforme necessário
   }
 
   toggleDescription(item: CartItem): void {
     this.showFullDescription[item.id] = !this.showFullDescription[item.id];
-  }
-
-  getTotal(): number {
-    let total = 0;
-    this.cartService.getTotal().subscribe(cartTotal => total = cartTotal);
-    return total;
   }
 }

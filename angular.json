@@ -93,7 +93,11 @@
               "@angular/material/prebuilt-themes/cyan-orange.css",
               "src/styles.css"
             ],
-            "scripts": []
+           "scripts": [
+  "node_modules/@fortawesome/fontawesome-free/js/all.min.js",
+  "https://player.twitch.tv/js/embed/v1.js"
+]
+
           }
         }
       }

@@ -1,3 +1,4 @@
+// contact.component.ts
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -17,8 +18,16 @@ export class ContactComponent {
 
   onSubmit() {
     this.http.post('http://localhost:3000/contact', this.contact)
-      .subscribe(response => {
-        console.log('Server response:', response);
-      });
+      .subscribe(
+        response => {
+          console.log('Server response:', response);
+          // Optionally, clear the form or show a success message
+          this.contact = { name: '', email: '', message: '' };
+        },
+        error => {
+          console.error('Error:', error);
+          // Optionally, show an error message to the user
+        }
+      );
   }
 }

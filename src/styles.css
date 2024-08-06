@@ -6,7 +6,7 @@ a.selected::after {
 
 /* Define a imagem de fundo para o corpo   background: url('assets/background4.gif') no-repeat center center fixed;*/
 body {
- 
+  background: url('assets/background3.gif') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Roboto', sans-serif; /* Fonte padrão */
   color: #000; /* Cor do texto para preto */
@@ -39,7 +39,7 @@ a, button {
 
 /* Estilo para botões em hover */
 a:hover, button:hover {
-  background-color: #5c4033; /* Marrom escuro para hover em botões */
+  background-color: #292927; /* Marrom escuro para hover em botões */
   color: #fff; /* Cor do texto em hover */
 }
 

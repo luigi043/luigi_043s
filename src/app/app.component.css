@@ -86,7 +86,7 @@ a::after {
 
 a:hover::after,
 a.selected::after {
-  background-color: #ff4081; /* Change to your desired color */
+  background-color: #418DD8; /* Change to your desired color */
 }
 
 /* Hide the button text */

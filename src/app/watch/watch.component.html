@@ -1,40 +1,46 @@
-<main>
-  <!-- Botão estilizado com ícone da Twitch -->
-  <a href="https://www.twitch.tv/luigi_043_" target="_blank" class="watch-button">
-    Watch Luigi's Stream <i class="fab fa-twitch"></i>
-  </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luigi's Clips</title>
+</head>
+<body>
+    <main>
+        <a href="https://www.twitch.tv/luigi_043_" target="_blank" class="watch-button">
+            Watch Luigi's Stream <i class="fab fa-twitch"></i>
+        </a>
 
-  <!-- Texto de boas-vindas -->
-  <p class="welcome-text">
-    <a href="" target="_blank" class="watch-button-text">
-      Watch <i class="fab fa-twitch"></i>
-    </a> 
-    <span class="highlight">
-      🎉 Welcome to Luigi_043!
-    </span> 
-    🌟 You’ve just joined one of the craziest and most vibrant communities on Twitch! Here, video games aren’t just a pastime—they’re a way of life. 🚀 Get ready for a journey filled with epic laughs, unexpected scares, and moments so unforgettable you’ll want to subscribe to make sure you don’t miss a thing. 💥
+        <p class="welcome-text">
+            <span class="highlight">🎉 Welcome to Luigi_043!</span> 🌟 You’ve just joined one of the craziest and most vibrant communities on Twitch! Here, video games aren’t just a pastime—they’re a way of life. 🚀 Get ready for a journey filled with epic laughs, unexpected scares, and moments so unforgettable you’ll want to subscribe to make sure you don’t miss a thing. 💥
 
-     Join us as we dive into mind-blowing adventures and share every thrill of this incredible journey. Your presence is the cherry on top of this community, and we’re super excited for you to experience all the fun and excitement with us!
-    🎮✨ If you’re ready for a sea of ​​fun and surprises, click the button and jump into this crazy experience with us! 🚀🎉  </p>
-  
-  <!-- Embed Twitch stream -->
-  <div class="twitch-stream">
-    <iframe 
-    src="https://player.twitch.tv/?channel=luigi_043_" 
-    frameborder="0"
-     allowfullscreen="true" 
-    scrolling="no" 
-    
-    height="1280" 
-    
-    width="2000">
-  
-  </iframe>
-    <iframe
-    src="https://player.twitch.tv/?channel=luigi_043_=streamernews.example.com&muted=true"
-    height="720"
-    width="1280"
-    allowfullscreen>
-</iframe>
-  </div>
-</main>
+            Join us as we dive into mind-blowing adventures and share every thrill of this incredible journey. Your presence is the cherry on top of this community, and we’re super excited for you to experience all the fun and excitement with us!
+            🎮✨ If you’re ready for a sea of fun and surprises, click the button and jump into this crazy experience with us! 🚀🎉
+        </p>
+        <div id="clips-container"></div>
+    </main>
+
+    <script>
+        async function fetchClips() {
+            try {
+                const response = await fetch('http://localhost:3000/api/clips');
+                const clips = await response.json();
+                const clipsContainer = document.getElementById('clips-container');
+
+                clips.forEach(clip => {
+                    const clipElement = document.createElement('iframe');
+                    clipElement.src = clip.embed_url;
+                    clipElement.width = "400";
+                    clipElement.height = "300";
+                    clipElement.frameBorder = "0";
+                    clipsContainer.appendChild(clipElement);
+                });
+            } catch (error) {
+                console.error('Error fetching clips:', error);
+            }
+        }
+
+        fetchClips();
+    </script>
+</body>
+</html>
