@@ -4,7 +4,7 @@
     <h1>Store</h1>
     <button routerLink="/cart" mat-button class="cart-link">
       <span class="fa">&#xf07a;</span>
-      <span class="cart-count">{{ getTotalItemsInCart() }}</span>
+      <span class="cart-count">{{ getTotalItemsInCart() | async }}</span>
     </button>
   </header>
 
@@ -57,3 +57,4 @@
       </div>
     </div>
   </div>
+</main>

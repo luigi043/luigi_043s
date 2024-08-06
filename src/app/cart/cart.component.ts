@@ -1,46 +1,46 @@
-import { Component, Input, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService, CartItem } from '../cart.service';
+import { Observable } from 'rxjs';
 import { Product } from '../product.service';
-
-interface CartItem extends Product {
-  quantity: number;
-}
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent {
-  cart: CartItem[] = [];
-  // @Input() isCartModalOpen = false;
+export class CartComponent implements OnInit {
+  cart$: Observable<CartItem[]>;
+  total$: Observable<number>;
+  showFullDescription: { [key: number]: boolean } = {};
 
-  constructor(private router: Router) {}
-
-  // toggleCartModal(): void {
-  //   this.isCartModalOpen = !this.isCartModalOpen;
-  // }
-
-  getTotalItemsInCart(): number {
-    return this.cart.reduce((total, item) => total + item.quantity, 0);
+  constructor(private cartService: CartService, private router: Router) {
+    this.cart$ = this.cartService.getCart();
+    this.total$ = this.cartService.getTotal();
   }
 
-  getTotal(): number {
-    return this.cart.reduce((total, item) => total + item.quantity * item.price, 0);
+  ngOnInit(): void {
   }
 
-  removeFromCart(product: CartItem): void {
-    const index = this.cart.findIndex(item => item.id === product.id);
-    if (index > -1) {
-      if (this.cart[index].quantity > 1) {
-        this.cart[index].quantity--;
-      } else {
-        this.cart.splice(index, 1);
-      }
-    }
+  removeFromCart(item: CartItem): void {
+    this.cartService.removeFromCart(item);
   }
 
   checkout(): void {
-    this.router.navigate(['/checkout']); // Navegue para a página de checkout
+    this.router.navigate(['/checkout']);
+  }
+
+  goBack(): void {
+    this.router.navigate(['/products']); // Ajuste o caminho conforme necessário
+  }
+
+  toggleDescription(item: CartItem): void {
+    this.showFullDescription[item.id] = !this.showFullDescription[item.id];
+  }
+
+  getTotal(): number {
+    let total = 0;
+    this.cartService.getTotal().subscribe(cartTotal => total = cartTotal);
+    return total;
   }
 }

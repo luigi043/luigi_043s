@@ -19,7 +19,8 @@ const routes: Routes = [
   { path: 'watch', component: WatchComponent },
   { path: 'merchant', component: MerchantComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'checkout', component: CheckoutComponent },
+  { path: 'checkout', component: CheckoutComponent }, // Add the checkout route
+
   { path: 'store', component: MerchantComponent },  // Pode ser removido se duplicado com 'merchant'
   // { path: '**', redirectTo: '/home' }  // Redireciona para a Home em caso de rota não encontrada
 ];

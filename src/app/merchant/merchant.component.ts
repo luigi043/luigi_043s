@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService, Product } from '../product.service';
-import { CartService } from '../cart.service';
-
-interface CartItem extends Product {
-  quantity: number;
-}
+import { CartService, CartItem } from '../cart.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-merchant',
@@ -13,22 +10,23 @@ interface CartItem extends Product {
   styleUrls: ['./merchant.component.css']
 })
 export class MerchantComponent implements OnInit {
-  products: Product[] = [];
+  products$: Observable<Product[]>;
   filteredProducts: Product[] = [];
-  cart: CartItem[] = [];
-  isCartModalOpen = false;
+  cart$: Observable<CartItem[]>;
   selectedProduct: Product | null = null;
 
   constructor(
     private router: Router,
     private productService: ProductService,
     private cartService: CartService
-  ) {}
+  ) {
+    this.products$ = this.productService.getProducts();
+    this.cart$ = this.cartService.getCart();
+  }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((data) => {
-      this.products = data;
-      this.filteredProducts = this.products;
+    this.products$.subscribe((data) => {
+      this.filteredProducts = data;
     });
   }
 
@@ -49,18 +47,14 @@ export class MerchantComponent implements OnInit {
   }
 
   filterCategory(category: string): void {
-    this.filteredProducts = category === 'all' ? this.products : this.products.filter(product => product.category === category);
+    this.products$.subscribe((products) => {
+      this.filteredProducts = category === 'all' ? products : products.filter(product => product.category === category);
+    });
   }
 
   addToCart(product: Product): void {
-    this.cartService.addToCart(product as any);
-
-    // const cartItem = this.cart.find(item => item.id === product.id);
-    // if (cartItem) {
-    //   cartItem.quantity++;
-    // } else {
-    //   this.cart.push({ ...product, quantity: 1 });
-    // }
+    const cartItem: CartItem = { ...product, quantity: 1 };
+    this.cartService.addToCart(cartItem);
   }
 
   openProductDetails(product: Product): void {
@@ -80,15 +74,11 @@ export class MerchantComponent implements OnInit {
     this.router.navigate(['/checkout']);
   }
 
-  toggleCartModal(): void {
-    this.isCartModalOpen = !this.isCartModalOpen;
+  getTotalItemsInCart(): Observable<number> {
+    return this.cartService.getTotalItemsInCart();
   }
 
-  getTotalItemsInCart(): number {
-    return this.cart.reduce((total, item) => total + item.quantity, 0);
-  }
-
-  getTotal(): number {
-    return this.cart.reduce((total, item) => total + item.quantity * item.price, 0);
+  getTotal(): Observable<number> {
+    return this.cartService.getTotal();
   }
 }

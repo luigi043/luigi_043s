@@ -30,7 +30,7 @@ import { CartService } from './cart.service'; // Importe o serviço
     WatchComponent,
     MerchantComponent,
     CheckoutComponent,
-    CartComponent // Adicionei o CartComponent aqui
+    CartComponent
   ],
   imports: [
     BrowserModule,
