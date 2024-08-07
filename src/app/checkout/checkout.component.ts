@@ -1,12 +1,10 @@
-// checkout.component.ts
-
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { CartService, CartItem } from '../cart.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { NgIfContext } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CheckoutService } from '../checkout.service';
+import { NgIfContext } from '@angular/common';
 
 @Component({
   selector: 'app-checkout',
@@ -18,22 +16,7 @@ export class CheckoutComponent implements OnInit {
   totalItems$!: Observable<number>;
   total$!: Observable<number>;
   checkoutForm: FormGroup;
-
-  billingInfo = {
-    name: '',
-    email: '',
-    address: '',
-    city: '',
-    state: '',
-    zip: '',
-    cardName: '',
-    cardNumber: '',
-    expDate: '',
-    expYear: '',
-    cvv: ''
-  };
-
-  emptyCart: TemplateRef<NgIfContext<CartItem[] | null>> | null = null;
+  emptyCart!: TemplateRef<NgIfContext<CartItem[] | null>> | null;
 
   constructor(
     private cartService: CartService,
@@ -43,15 +26,16 @@ export class CheckoutComponent implements OnInit {
   ) {
     this.checkoutForm = this.fb.group({
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['@example.com', [Validators.required, Validators.email]],
       address: ['', Validators.required],
       city: ['', Validators.required],
       state: ['', Validators.required],
-      zip: ['', Validators.required],
+      zip: ['0000-000', [Validators.required, Validators.pattern('^[0-9]{5}-[0-9]{3}$')]],
       cardName: ['', Validators.required],
-      cardNumber: ['', Validators.required],
-      expDate: ['', Validators.required],
-      cvv: ['', Validators.required]
+      cardNumber: ['0000-0000-0000-0000', [Validators.required, Validators.pattern('^\\d{4}-\\d{4}-\\d{4}-\\d{4}$')]],
+      expDate: ['MM/YY', [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])/(\\d{2})$')]],
+      expYear: ['2024', [Validators.required, Validators.pattern('^\\d{4}$')]],
+      cvv: ['000', [Validators.required, Validators.pattern('^\\d{3}$')]]
     });
   }
 
@@ -63,12 +47,27 @@ export class CheckoutComponent implements OnInit {
 
   onSubmit(): void {
     if (this.checkoutForm.valid) {
-      this.checkoutService.submitCheckoutData(this.checkoutForm.value).subscribe(response => {
-        console.log('Checkout data saved successfully', response);
-        this.cartService.clearCart();
-        this.router.navigate(['/confirmation']);
-      }, error => {
-        console.error('Error saving checkout data', error);
+      const checkoutData = this.checkoutForm.value;
+      this.cart$.subscribe(cart => {
+        const totalAmount = this.total$;
+
+        // Log information about the checkout
+        console.log('Checkout Data:', checkoutData);
+        console.log('Cart Data:', cart);
+        console.log('Total Amount:', totalAmount);
+
+        // Submit the checkout data
+        this.checkoutService.submitCheckoutData({
+          ...checkoutData,
+          cart: cart,
+          total: totalAmount
+        }).subscribe(response => {
+          console.log('Checkout data saved successfully', response);
+          this.cartService.clearCart();
+          this.router.navigate(['/confirmation']); // Ajuste a rota conforme necessário
+        }, error => {
+          console.error('Error saving checkout data', error);
+        });
       });
     } else {
       console.log('Form is not valid');
@@ -76,7 +75,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/cart']);
+    this.router.navigate(['/cart']); // Navegar de volta para a página do carrinho
   }
 
   updateQuantity(item: CartItem): void {

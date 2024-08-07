@@ -1,4 +1,3 @@
-<!-- checkout.component.html -->
 <main>
   <section class="checkout">
     <h2>Checkout</h2>
@@ -17,10 +16,10 @@
                   <input type="text" id="name" formControlName="name" placeholder="John M. Doe" required>
 
                   <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                  <input type="email" id="email" formControlName="email" placeholder="john@example.com" required>
+                  <input type="email" id="email" formControlName="email" placeholder="john.doe@example.com" required>
 
                   <label for="address"><i class="fa fa-address-card-o"></i> Address</label>
-                  <input type="text" id="address" formControlName="address" placeholder="123 Flower Street" required>
+                  <input type="text" id="address" formControlName="address" placeholder="Av.Flower Street" required>
 
                   <label for="city"><i class="fa fa-city"></i> City</label>
                   <input type="text" id="city" formControlName="city" placeholder="Lisbon" required>
@@ -32,7 +31,7 @@
                     </div>
                     <div class="col-50">
                       <label for="zip">Postal Code</label>
-                      <input type="text" id="zip" formControlName="zip" placeholder="1000-000" required>
+                      <input type="text" id="zip" formControlName="zip" placeholder="10000-000" required>
                     </div>
                   </div>
                 </div>
@@ -43,7 +42,7 @@
                   <input type="text" id="cardName" formControlName="cardName" placeholder="John Doe" required>
 
                   <label for="cardNumber">Credit Card Number</label>
-                  <input type="text" id="cardNumber" formControlName="cardNumber" placeholder="1111-2222-3333-4444" required>
+                  <input type="text" id="cardNumber" formControlName="cardNumber" placeholder="0000-0000-0000-0000" required>
 
                   <label for="expDate">Expiration Date</label>
                   <input type="text" id="expDate" formControlName="expDate" placeholder="MM/YY" required>
@@ -55,7 +54,7 @@
                     </div>
                     <div class="col-50">
                       <label for="cvv">CVV</label>
-                      <input type="text" id="cvv" formControlName="cvv" placeholder="352" required>
+                      <input type="text" id="cvv" formControlName="cvv" placeholder="000" required>
                     </div>
                   </div>
                 </div>
@@ -64,7 +63,7 @@
 
             <div class="row">
               <label>
-                <input type="checkbox" checked="checked" name="sameAddress"> Shipping address same as billing
+                <input type="checkbox" formControlName="sameAddress"> Shipping address same as billing
               </label>
             </div>
 
