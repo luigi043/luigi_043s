@@ -20,9 +20,13 @@
 
   <!-- Products Grid -->
   <section class="products">
-    <button *ngFor="let product of filteredProducts" class="product-card" (click)="openProductDetails(product)">
+    <button *ngFor="let product of filteredProducts" 
+    class="product-card" 
+    (click)="openProductDetails(product)">
       <div class="image-slideshow">
-        <img *ngFor="let image of product.images; let i = index" [src]="image" [alt]="product.name" [class.active]="i === product.activeImageIndex">
+        <img *ngFor="let image of product.images; let i = index"
+        [src]="image" 
+        [alt]="product.name" [class.active]="i === product.activeImageIndex">
       </div>
       <h3>{{ product.name }}</h3>
       <p>${{ product.price }}</p>
@@ -37,10 +41,19 @@
       <!-- Product Details Layout -->
       <div class="product-details-layout">
         <div class="product-image">
-          <img *ngFor="let image of selectedProduct.images; let i = index" [src]="image" [alt]="selectedProduct.name" [class.active]="i === selectedProduct.activeImageIndex">
-          <button mat-button (click)="previousImage(selectedProduct)" class="prev">&laquo;</button>
-          <button mat-button (click)="nextImage(selectedProduct)" class="next">&raquo;</button>
+         
+          <img *ngFor="let image of selectedProduct.images; let i = index"
+          [src]="image" 
+          [alt]="selectedProduct.name" [class.active]="i === selectedProduct.activeImageIndex">
+          
+         
+          <button mat-button (click)="previousImage(selectedProduct)" 
+          class="prev">&laquo;</button>
+          
+          <button mat-button (click)="nextImage(selectedProduct)" 
+          class="next">&raquo;</button>
         </div>
+       
         <div class="details-text">
           <h2>{{ selectedProduct.name }}</h2>
           <p><strong>Price:</strong> ${{ selectedProduct.price }}</p>
@@ -51,7 +64,9 @@
             <li *ngFor="let line of selectedProduct.description.split('\n')">{{ line }}</li>
           </ul>
           <p><strong>Color:</strong> Sand</p>
+          
           <button class="add-to-cart" mat-button (click)="addToCart(selectedProduct)">Add to Cart</button>
+         
           <button class="buy-now" mat-button (click)="buyNow(selectedProduct)">Buy Now</button>
         </div>
       </div>

@@ -1,22 +1,20 @@
 /* Container for the main content */
 main {
-  max-width: 800px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
   padding: 20px;
-  background-color: #F3FAFD; /* Cor de fundo leve */
-  border-radius: 10px; /* Adiciona bordas arredondadas */
-}
-
-/* Form header */
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #292927; /* Cor do texto */
 }
 
 /* Form styling */
 .contact-form {
+  max-width: 600px;
+  width: 100%;
+  background-color: #fff; /* White background for the form */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -32,7 +30,7 @@ h1 {
 /* Label styling */
 label {
   font-size: 1.1em;
-  color: #292927; /* Cor do texto do rótulo */
+  color: #292927; /* Label text color */
 }
 
 /* Input and textarea styling */
@@ -40,7 +38,7 @@ input[type="text"],
 input[type="email"],
 textarea {
   padding: 10px;
-  border: 1px solid #418DD8; /* Cor da borda */
+  border: 1px solid #418DD8; /* Border color */
   border-radius: 5px;
   font-size: 1em;
   width: 100%;
@@ -53,25 +51,29 @@ textarea {
   min-height: 150px;
 }
 
+/* Error message styling */
+small {
+  color: #d9534f; /* Error color */
+  font-size: 0.9em;
+}
+
 /* Styling for submit button */
-.submit-button {
+button[type="submit"] {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #418DD8; /* Cor de fundo do botão */
-  color: #fff; /* Cor do texto do botão */
+  background-color: #418DD8; /* Button background color */
+  color: #fff; /* Button text color */
   font-size: 1.1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.submit-button:hover {
-  background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+button[type="submit"]:hover {
+  background-color: #0056b3; /* Button background color on hover */
 }
 
-/* Responsive layout */
-@media (max-width: 600px) {
-  .contact-form {
-    padding: 10px;
-  }
+button[type="submit"][disabled] {
+  background-color: #d6d6d6; /* Disabled button background color */
+  cursor: not-allowed;
 }

@@ -1,6 +1,6 @@
-// contact.component.ts
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'app-contact-me',
@@ -8,26 +8,23 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  contact = {
-    name: '',
-    email: '',
-    message: ''
-  };
+  contactForm: FormGroup;
 
-  constructor(private http: HttpClient) {}
+  constructor(private fb: FormBuilder, private contactService: ContactService) {
+    this.contactForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required]
+    });
+  }
 
   onSubmit() {
-    this.http.post('http://localhost:3000/contact', this.contact)
-      .subscribe(
-        response => {
-          console.log('Server response:', response);
-          // Optionally, clear the form or show a success message
-          this.contact = { name: '', email: '', message: '' };
-        },
-        error => {
-          console.error('Error:', error);
-          // Optionally, show an error message to the user
-        }
-      );
+    if (this.contactForm.valid) {
+      this.contactService.submitContactMessage(this.contactForm.value).subscribe(response => {
+        console.log('Contact message sent successfully', response);
+      }, error => {
+        console.error('Error sending contact message', error);
+      });
+    }
   }
 }

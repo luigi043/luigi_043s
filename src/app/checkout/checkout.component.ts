@@ -1,8 +1,12 @@
+// checkout.component.ts
+
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { CartService, CartItem } from '../cart.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { NgIfContext } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CheckoutService } from '../checkout.service';
 
 @Component({
   selector: 'app-checkout',
@@ -13,6 +17,7 @@ export class CheckoutComponent implements OnInit {
   cart$!: Observable<CartItem[]>;
   totalItems$!: Observable<number>;
   total$!: Observable<number>;
+  checkoutForm: FormGroup;
 
   billingInfo = {
     name: '',
@@ -30,7 +35,25 @@ export class CheckoutComponent implements OnInit {
 
   emptyCart: TemplateRef<NgIfContext<CartItem[] | null>> | null = null;
 
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router,
+    private fb: FormBuilder,
+    private checkoutService: CheckoutService
+  ) {
+    this.checkoutForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      zip: ['', Validators.required],
+      cardName: ['', Validators.required],
+      cardNumber: ['', Validators.required],
+      expDate: ['', Validators.required],
+      cvv: ['', Validators.required]
+    });
+  }
 
   ngOnInit(): void {
     this.cart$ = this.cartService.getCart();
@@ -39,14 +62,21 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Billing Information:', this.billingInfo);
-
-    this.cartService.clearCart();
-    this.router.navigate(['/confirmation']); // Ajuste a rota conforme necessário
+    if (this.checkoutForm.valid) {
+      this.checkoutService.submitCheckoutData(this.checkoutForm.value).subscribe(response => {
+        console.log('Checkout data saved successfully', response);
+        this.cartService.clearCart();
+        this.router.navigate(['/confirmation']);
+      }, error => {
+        console.error('Error saving checkout data', error);
+      });
+    } else {
+      console.log('Form is not valid');
+    }
   }
 
   goBack(): void {
-    this.router.navigate(['/cart']); // Navegar de volta para a página do carrinho
+    this.router.navigate(['/cart']);
   }
 
   updateQuantity(item: CartItem): void {
